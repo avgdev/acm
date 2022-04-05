@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sol-fern
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sol-fern
+  template:
+    metadata:
+      labels:
+        app: sol-fern
+    spec:
+      containers:
+      - name: sol-fern
+        image: us-central1-docker.pkg.dev/elanco-test-346305/elanco/sol-fern@sha256:174c62a62af9d62e9a1a400bb72ae129deb3f7ed38275b6b38decddd779da1e0
+        ports:
+        - containerPort: 8080
